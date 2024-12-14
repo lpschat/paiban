@@ -1,5 +1,5 @@
-// 设置基准日期（2024-12-13是第一天上班）
-const baseDate = new Date('2024-12-13');
+// 设置基准日期（2024-12-12是第一天上班）
+const baseDate = new Date('2024-12-12');
 const baseState = 'work'; // 基准日期的状态是上班
 
 function getShiftStatus(date) {
