@@ -1,17 +1,13 @@
-// 设置基准日期（2024-12-14是休息日的第一天）
-const baseDate = new Date('2024-12-14');
-const baseState = 'rest'; // 基准日期的状态是休息
+// 设置基准日期（2024-12-13是第一天上班）
+const baseDate = new Date('2024-12-13');
+const baseState = 'work'; // 基准日期的状态是上班
 
 function getShiftStatus(date) {
     const oneDay = 24 * 60 * 60 * 1000;
     const diffDays = Math.floor((date - baseDate) / oneDay);
-    const cycleDay = Math.floor(Math.abs(diffDays) % 6);
+    const cycleDay = ((diffDays % 6) + 6) % 6; // 确保结果为正数
     
-    if (diffDays >= 0) {
-        return cycleDay < 3 ? 'rest' : 'work';
-    } else {
-        return cycleDay < 3 ? 'work' : 'rest';
-    }
+    return cycleDay < 3 ? 'work' : 'rest';
 }
 
 function createCalendar(year, month) {
