@@ -5,9 +5,14 @@ const baseState = 'work'; // 基准日期的状态是上班
 function getShiftStatus(date) {
     const oneDay = 24 * 60 * 60 * 1000;
     const diffDays = Math.floor((date - baseDate) / oneDay);
-    const cycleDay = ((diffDays % 6) + 6) % 6; // 确保结果为正数
+    // 使用正确的模运算来确保循环
+    const cyclePosition = ((diffDays % 6) + 6) % 6;
     
-    return cycleDay < 3 ? 'work' : 'rest';
+    // 前三天是上班日（0,1,2），后三天是休息日（3,4,5）
+    if (cyclePosition <= 2) {
+        return 'work';
+    }
+    return 'rest';
 }
 
 function createCalendar(year, month) {
