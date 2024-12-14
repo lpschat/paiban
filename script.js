@@ -8,11 +8,8 @@ function getShiftStatus(date) {
     // 使用正确的模运算来确保循环
     const cyclePosition = ((diffDays % 6) + 6) % 6;
     
-    // 前三天是上班日（0,1,2），后三天是休息日（3,4,5）
-    if (cyclePosition <= 2) {
-        return 'work';
-    }
-    return 'rest';
+    // 12月13日、14日、15日为上班日（0,1,2），16日、17日、18日为休息日（3,4,5）
+    return cyclePosition <= 2 ? 'work' : 'rest';
 }
 
 function createCalendar(year, month) {
