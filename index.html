@@ -1,53 +1,21 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>温馨排班日历</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>排班表</title>
+    <!-- React 核心库 -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header class="text-center my-4">
-            <h1 class="title">🌟 温馨排班日历 🌟</h1>
-            <p class="subtitle">上三休三排班表</p>
-        </header>
-
-        <div class="calendar-container">
-            <div class="calendar-nav">
-                <button id="prevMonth" class="btn btn-outline-primary">&lt; 上个月</button>
-                <h2 id="currentMonth" class="month-title"></h2>
-                <button id="nextMonth" class="btn btn-outline-primary">下个月 &gt;</button>
-            </div>
-            <div class="calendar-header">
-                <div>周日</div>
-                <div>周一</div>
-                <div>周二</div>
-                <div>周三</div>
-                <div>周四</div>
-                <div>周五</div>
-                <div>周六</div>
-            </div>
-            <div id="calendar" class="calendar-grid"></div>
-        </div>
-
-        <div class="legend mt-4">
-            <div class="legend-item">
-                <span class="legend-color work"></span>
-                <span>上班日</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-color rest"></span>
-                <span>休息日</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-color today"></span>
-                <span>今天</span>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <div id="root"></div>
+    <!-- 注意：type="text/babel" 很重要 -->
+    <script type="text/babel" src="components/ShiftCalendar.js"></script>
+    <script type="text/babel" src="app.js"></script>
 </body>
 </html>
